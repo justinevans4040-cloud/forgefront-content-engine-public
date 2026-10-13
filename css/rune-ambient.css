@@ -1,0 +1,21 @@
+/* Ambient animated SVG runes modeled on the actual ODIN LINEFORGE CSS on Ichabod. */
+.ff-ambient-runes{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;user-select:none;contain:strict;background:radial-gradient(circle at 82% 22%,rgba(38,124,145,.08),transparent 36%)}
+body>.shell,body>main,body>header{position:relative;z-index:1}
+.ff-ambient-rune{--rune:#56b7cf;position:absolute;width:clamp(58px,7vw,112px);height:auto;color:var(--rune);fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;will-change:transform;animation:ff-rune-drift var(--time,29s) cubic-bezier(.4,0,.2,1) infinite;animation-delay:var(--delay,-5s)}
+.ff-rune-shape{stroke-width:1.3;opacity:0;animation:ff-rune-awaken var(--time,29s) cubic-bezier(.4,0,.2,1) infinite;animation-delay:var(--delay,-5s)}
+.ff-rune-spark{stroke:#e9fdff;stroke-width:2.2;stroke-dasharray:1.2 98.8;stroke-dashoffset:100;opacity:0;animation:ff-rune-fuse var(--time,29s) linear infinite;animation-delay:var(--delay,-5s)}
+.ff-ambient-rune:nth-child(1){left:4%;top:12%;--time:29s;--delay:-12s;--drift:31px}
+.ff-ambient-rune:nth-child(2){left:20%;top:76%;--time:34s;--delay:-24s;--drift:-26px;--rune:#d3a76b}
+.ff-ambient-rune:nth-child(3){left:34%;top:19%;--time:27s;--delay:-17s;--drift:38px}
+.ff-ambient-rune:nth-child(4){left:55%;top:61%;--time:35s;--delay:-8s;--drift:-42px}
+.ff-ambient-rune:nth-child(5){left:72%;top:12%;--time:39s;--delay:-28s;--drift:34px;--rune:#e0b882}
+.ff-ambient-rune:nth-child(6){left:89%;top:74%;--time:32s;--delay:-14s;--drift:-35px}
+.ff-ambient-rune:nth-child(7){left:9%;top:44%;--time:44s;--delay:-34s;--drift:25px}
+.ff-ambient-rune:nth-child(8){left:45%;top:84%;--time:33s;--delay:-4s;--drift:-24px}
+.ff-ambient-rune:nth-child(9){left:82%;top:37%;--time:38s;--delay:-23s;--drift:29px}
+.ff-ambient-rune:nth-child(10){left:63%;top:35%;--time:41s;--delay:-32s;--drift:-23px;--rune:#bd9366}
+@keyframes ff-rune-drift{0%{transform:translate3d(0,20px,0) rotate(-6deg) scale(.8)}70%{transform:translate3d(var(--drift),-12px,0) rotate(4deg) scale(.98)}100%{transform:translate3d(var(--drift),-34px,0) rotate(8deg) scale(1.06)}}
+@keyframes ff-rune-awaken{0%,14%{opacity:0;filter:none}62%{opacity:.03}74%{opacity:.1}80%{opacity:.53;filter:drop-shadow(0 0 9px currentColor) drop-shadow(0 0 22px currentColor)}86%{opacity:.09;filter:drop-shadow(0 0 3px currentColor)}94%,100%{opacity:0;filter:none}}
+@keyframes ff-rune-fuse{0%,64%{opacity:0;stroke-dashoffset:100;filter:none}70%{opacity:1;filter:drop-shadow(0 0 8px currentColor)}84%{opacity:.8;stroke-dashoffset:0;filter:drop-shadow(0 0 10px currentColor)}90%,100%{opacity:0;stroke-dashoffset:-10;filter:none}}
+@media(max-width:700px){.ff-ambient-rune{width:65px}.ff-ambient-rune:nth-child(n+7){display:none}}
+@media(prefers-reduced-motion:reduce){.ff-ambient-rune,.ff-rune-shape,.ff-rune-spark{animation:none!important}.ff-rune-shape{opacity:.035;filter:none}.ff-rune-spark{display:none}.ff-ambient-rune:nth-child(even){display:none}}

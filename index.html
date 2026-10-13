@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ForgeFront Content Engine</title>
+<link rel="stylesheet" href="css/rune-ambient.css">
+<style>
+:root{color-scheme:dark;--bg:#070b12;--surface:#121925;--line:#2a374a;--text:#ecf2fa;--muted:#99a9be;--cyan:#63def0;--green:#6dd3ad}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 100% -10%,#153049 0%,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+.shell{max-width:1100px;margin:auto;padding:24px 20px 80px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:900;background:linear-gradient(150deg,#48d3e9,#3850ad)}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#101e2d;color:var(--text);font-weight:700}
+nav a.active{border-color:#64cfdf;background:#1a3647}
+.hero{padding:40px 0 28px}
+.kicker{color:var(--cyan);font-size:11px;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+h1{font-size:clamp(28px,5vw,48px);letter-spacing:-.04em;line-height:1.1;margin:10px 0}
+.lede{color:var(--muted);max-width:40rem;font-size:17px}
+.panel{background:linear-gradient(145deg,#121c29,#0f1520);border:1px solid var(--line);border-radius:15px;padding:22px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+video{width:100%;max-height:520px;background:#000;border-radius:12px;object-fit:contain}
+.pill{display:inline-block;border:1px solid #245d4a;color:var(--green);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700}
+.dest{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.dest span{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;background:#0b1520}
+.note{color:var(--muted);font-size:13px}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<main class="shell">
+<header>
+  <div class="brand"><div class="logo">FF</div><div><strong>ForgeFront Systems</strong><br><small style="color:var(--muted)">Content Engine</small></div></div>
+  <nav>
+    <a class="active" href="index.html">Home</a>
+    <a href="create.html">Creative Studio</a>
+    <a href="library.html">Library</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="kicker">Public demo</div>
+  <h1>Content Engine</h1>
+  <p class="lede">Turn your own footage and product art into short videos and post packs for every major network. You keep the files. You still hit publish.</p>
+  <p><span class="pill">Look only — no Tailscale required</span></p>
+</section>
+
+<section class="grid">
+  <div class="panel">
+    <h2 style="margin-top:0">Sample cut</h2>
+    <p class="note">A real TITAN agents short from the operator studio. Sound and captions can be added later — voice is optional.</p>
+    <video controls playsinline poster="" src="assets/agents-cut.mp4"></video>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0">What it does</h2>
+    <ul>
+      <li>Library of ready-to-make media</li>
+      <li>Edit and Sequence Studio for real MP4s</li>
+      <li>Creative Studio for scripts, pictures, and drafts</li>
+      <li>Post packs for <strong>10</strong> destinations</li>
+    </ul>
+    <div class="dest">
+      <span>YouTube Shorts</span><span>TikTok</span><span>Instagram</span><span>Facebook</span>
+      <span>LinkedIn</span><span>X</span><span>Threads</span><span>Bluesky</span>
+      <span>Discord</span><span>Substack</span>
+    </div>
+    <p class="note" style="margin-top:18px">This public page is a demo. The full studio runs on the family machines and is not exposed here.</p>
+    <p style="margin-top:18px"><a href="create.html">Open Creative Studio demo</a> · <a href="library.html">Open Library demo</a></p>
+  </div>
+</section>
+
+<footer>
+  ForgeFront Systems · Content Engine public demo · Not connected to private vaults or live posting.
+</footer>
+</main>
+<script src="js/rune-ambient.js" defer></script>
+</body>
+</html>

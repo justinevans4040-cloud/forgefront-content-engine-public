@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Creative Studio · Content Engine</title>
+<link rel="stylesheet" href="css/rune-ambient.css">
+<link rel="stylesheet" href="css/creative.css">
+<style>
+.demo-banner{background:#1a3647;border:1px solid #64cfdf;border-radius:10px;padding:12px 14px;margin:0 0 14px;color:#c8eff9;font-size:13px}
+.platform-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin:8px 0 14px;padding:12px;border:1px solid #345f75;border-radius:10px;background:#0b2639}
+.platform-grid .check{display:flex;align-items:center;gap:8px;margin:0;font-weight:600;color:#c8eff9;font-size:13px}
+.platform-grid .check input{width:16px;height:16px;margin:0}
+.pack{border:1px solid #345f75;border-radius:10px;padding:12px;margin:8px 0;background:#081826}
+.pack b{display:block;color:#81d6eb;margin-bottom:6px}
+.pack p{margin:0;color:#aac0ce;font-size:13px;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div>
+    <small>FORGEFRONT SYSTEMS / CONTENT ENGINE</small>
+    <h1>Creative Studio</h1>
+    <p>Produce original media, edit, revise, and export using the engines you already own.</p>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="library.html">Library</a>
+  </nav>
+</header>
+<main class="layout">
+<aside class="panel sidebar">
+  <h2>Projects</h2>
+  <div id="project-list"></div>
+  <p class="hint">Demo projects only. Private operator projects stay on the Lenovo studio.</p>
+</aside>
+<div class="content">
+  <div class="demo-banner">Public demo — packs generate locally in your browser. Nothing is posted. Voice can be recorded later.</div>
+  <section class="panel">
+    <h2>Start from an idea or source</h2>
+    <form id="demo-form">
+      <label>Project name<input name="title" required maxlength="130" value="TITAN agents"></label>
+      <label>Idea, script or source material<textarea name="source" rows="5" required>ForgeFront Systems agents on TITAN — Vale, Echo, NYX, LOOM, RUNE, Caretaker. Real product art. Request scope for a price.</textarea></label>
+      <label>Destinations (all selected by default)</label>
+      <div class="platform-grid" id="platform-grid"></div>
+      <button class="primary" type="submit">Build content plan</button>
+      <p id="status" role="status"></p>
+    </form>
+  </section>
+  <section class="panel" id="packs" hidden>
+    <h2>Platform packs</h2>
+    <p class="hint">Editable drafts for every destination. Human review only — no auto publish.</p>
+    <div id="pack-list"></div>
+    <p style="margin-top:16px"><a href="assets/agents-cut.mp4" target="_blank">Play sample cut</a></p>
+  </section>
+</div>
+</main>
+<script>
+const DEST=[
+ ["youtube_shorts","YouTube Shorts"],["tiktok","TikTok"],["instagram","Instagram"],["facebook","Facebook"],
+ ["linkedin","LinkedIn"],["x","X"],["threads","Threads"],["bluesky","Bluesky"],["discord","Discord"],["substack","Substack"]
+];
+const grid=document.getElementById("platform-grid");
+for(const [id,label] of DEST){
+  const lab=document.createElement("label");lab.className="check";
+  lab.innerHTML=`<input type="checkbox" name="platforms" value="${id}" checked> ${label}`;
+  grid.append(lab);
+}
+const list=document.getElementById("project-list");
+const btn=document.createElement("button");btn.className="projectbtn active";btn.type="button";
+btn.innerHTML="TITAN agents · 10 destinations<small>Demo project</small>";list.append(btn);
+
+document.getElementById("demo-form").onsubmit=(e)=>{
+  e.preventDefault();
+  const fd=new FormData(e.target);
+  const source=String(fd.get("source")||"").trim();
+  const title=String(fd.get("title")||"Project").trim();
+  const picked=[...e.target.querySelectorAll('input[name="platforms"]:checked')].map(x=>x.value);
+  const hook=(source.split(".")[0]||title).slice(0,120);
+  const cta=source.toLowerCase().includes("scope")?"Request scope for a price.":"Review before you publish.";
+  const box=document.getElementById("pack-list");box.replaceChildren();
+  for(const [id,label] of DEST){
+    if(picked.length && !picked.includes(id)) continue;
+    const body=id==="linkedin"||id==="substack"?source.slice(0,900):source.slice(0,280);
+    const art=document.createElement("article");art.className="pack";
+    art.innerHTML=`<b>${label}</b><p>${hook}\n\n${body}\n\n${cta}</p>`;
+    box.append(art);
+  }
+  document.getElementById("packs").hidden=false;
+  document.getElementById("status").textContent=picked.length+" destination packs ready for review.";
+};
+</script>
+<script src="js/rune-ambient.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Library · Content Engine</title>
+<link rel="stylesheet" href="css/rune-ambient.css">
+<link rel="stylesheet" href="css/library.css">
+<style>
+.demo-banner{background:#1a3647;border:1px solid #64cfdf;border-radius:10px;padding:12px 14px;margin:14px 0;color:#c8eff9;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.card{border:1px solid #345f75;border-radius:12px;padding:14px;background:#0b1520}
+.card video,.card img{width:100%;border-radius:8px;background:#000;max-height:220px;object-fit:contain}
+.card h3{margin:10px 0 4px;font-size:15px}
+.card p{margin:0;color:#99a9be;font-size:12px}
+.topnav{display:flex;gap:8px;flex-wrap:wrap;padding:16px 3%;border-bottom:1px solid #2a374a}
+.topnav a{border:1px solid #294257;border-radius:10px;padding:10px 14px;background:#101e2d;color:#ecf2fa;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="topnav">
+  <a href="index.html">Home</a>
+  <a href="create.html">Creative Studio</a>
+  <a href="library.html">Library</a>
+</header>
+<main class="shell" style="max-width:1100px;margin:auto;padding:20px">
+  <h1>Content Library</h1>
+  <p class="muted">Ready-to-make media for the Content Engine.</p>
+  <div class="demo-banner">Public demo folder — sample assets only. The private vault on Ichabod is not exposed here.</div>
+  <div class="cards">
+    <article class="card">
+      <video src="assets/agents-cut.mp4" controls playsinline></video>
+      <h3>TITAN agents cut</h3>
+      <p>Ready to make · sample render</p>
+    </article>
+    <article class="card">
+      <video src="assets/sample-cut.mp4" controls playsinline></video>
+      <h3>Silent picture draft</h3>
+      <p>Voice optional · add later</p>
+    </article>
+    <article class="card">
+      <div style="height:180px;display:grid;place-items:center;border:1px dashed #345f75;border-radius:8px;color:#99a9be">More media stays private</div>
+      <h3>Operator library</h3>
+      <p>Full catalog remains on the studio machines</p>
+    </article>
+  </div>
+</main>
+<script src="js/rune-ambient.js" defer></script>
+</body>
+</html>
